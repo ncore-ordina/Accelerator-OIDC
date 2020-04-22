@@ -39,11 +39,33 @@ new Client {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
                     }
-}
+},
+            new Client
+        {
+            ClientId = "angularClient",
+            ClientName = "JavaScript Client",
+            //ClientUri = "http://identityserver.io",
 
+            AllowedGrantTypes = GrantTypes.Implicit,
+            AllowAccessTokensViaBrowser = true,
 
+            RedirectUris =           { "http://localhost:4200" },
+            PostLogoutRedirectUris = { "http://localhost:4200" },
 
+            AllowedCorsOrigins = { "http://localhost:4200" },
+
+            AllowedScopes =
+            {
+                IdentityServerConstants.StandardScopes.OpenId,
+                IdentityServerConstants.StandardScopes.Profile,
+                IdentityServerConstants.StandardScopes.Email,
+            }
+          }
             };
 
-    }
+
+
+ 
+    };
+
 }
